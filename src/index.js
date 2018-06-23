@@ -1,13 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles.css';
-const App = () => (
-    <div>
-        Hi, It's App,
-        <input/>
-    </div>
-)
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+ReactDOM.render(<App />, document.getElementById('root'))
