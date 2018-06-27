@@ -8,6 +8,8 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: resolve(__dirname, 'dist'),
+        //ไว้บอก path เริ่มต้น
+        // publicPath: '/'
     },
     module: {
         rules: [
@@ -56,6 +58,8 @@ module.exports = {
         }),
     ],
     devServer: {
+        //ให้เว็บเรียก url ตรงๆ ได้
+        historyApiFallback: true,
         hot: true,
       },
 }

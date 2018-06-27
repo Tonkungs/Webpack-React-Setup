@@ -2,8 +2,12 @@
   "name": "react-own",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "license": "MIT",
   "scripts": {
+    "prettier": "./node_modules/.bin/prettier --semi=false --single-quote=true --write src/*.js",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
@@ -25,8 +29,20 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "eslint": "^5.0.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "prettier": "^1.13.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-hot-loader": "^4.3.3"
+    "react-hot-loader": "^4.3.3",
+    "react-router-dom": "^4.3.1",
+    "standard": "^11.0.1"
   }
 }
