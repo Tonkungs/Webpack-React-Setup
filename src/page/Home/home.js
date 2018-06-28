@@ -1,20 +1,20 @@
 import React from "react";
-import MenuNav from './../../components/MenuNav'
-import BreadCrumb from './../../components/BreadCrumb'
-
+import { Control, Form, actions } from "react-redux-form";
+import MenuNav from "./../../components/MenuNav";
+import BreadCrumb from "./../../components/BreadCrumb";
+import { createStore } from 'redux';
 class Home extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       value: 0
-    }
+    };
 
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
   handleClick(e) {
-    let { value } = e.currentTarget
+    let { value } = e.currentTarget;
     console.log(value);
     //   this.setState({
     //       counter: this.state.counter + 1
@@ -22,7 +22,15 @@ class Home extends React.Component {
     // กัน side effect เลยใช่ข้างล่างแทน
     this.setState(prevState => ({
       value: value
-    }))
+    }));
+  }
+  handleSubmit(user) {
+    console.log(user);
+    // Do whatever you like in here.
+    // If you connect the UserForm to the Redux store,
+    // you can dispatch actions such as:
+    // dispatch(actions.submit('user', somePromise));
+    // etc.
   }
   render() {
     return (
@@ -32,7 +40,7 @@ class Home extends React.Component {
             <div className="container">
               <h1 className="title">
                 Primary bold title
-                    <i className="fab fa-font-awesome" />
+                <i className="fab fa-font-awesome" />
               </h1>
               <h2 className="subtitle">Primary bold subtitle</h2>
             </div>
@@ -47,45 +55,33 @@ class Home extends React.Component {
             <div className="content">
               <h3 className="title is-3">Manage Your Team</h3>
               value = {this.state.value}
-              <input className="input" onChange={this.handleClick} type="text" placeholder="Text input"
-              value={this.state.value} />
-              <a className="button is-primary">Primary</a>
-              <table>
-                <thead>
-                  <tr>
-                    <th>One</th>
-                    <th>Two</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Three</td>
-                    <td>Four</td>
-                  </tr>
-                  <tr>
-                    <td>Five</td>
-                    <td>Six</td>
-                  </tr>
-                  <tr>
-                    <td>Seven</td>
-                    <td>Eight</td>
-                  </tr>
-                  <tr>
-                    <td>Nine</td>
-                    <td>Ten</td>
-                  </tr>
-                  <tr>
-                    <td>Eleven</td>
-                    <td>Twelve</td>
-                  </tr>
-                </tbody>
-              </table>
+              <input
+                className="input"
+                onChange={this.handleClick}
+                type="text"
+                placeholder="Text input"
+                value={this.state.value}
+              />
+              <Form model="user" onSubmit={user => this.handleSubmit(user)}>
+                <label htmlFor="user.firstName">First name:</label>
+                <Control.text className="input" model="user.firstName" id="user.firstName" />
+
+                <label htmlFor="user.lastName">Last name:</label>
+                <Control.text className="input" model="user.lastName" id="user.lastName" />
+
+                <button type="submit">Finish registration!</button>
+              </Form>
             </div>
           </div>
         </div>
       </span>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
+// export default connect(
+//   state => ({
+//     sandwiches: state.sandwiches
+//   })
+// )(Home);
