@@ -2,7 +2,7 @@ import React from "react";
 import { Control, Form, actions } from "react-redux-form";
 import MenuNav from "./../../components/MenuNav";
 import BreadCrumb from "./../../components/BreadCrumb";
-import { createStore } from 'redux';
+
 class Home extends React.Component {
   constructor(props) {
     super(props);

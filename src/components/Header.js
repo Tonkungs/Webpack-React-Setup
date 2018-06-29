@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { NavLink } from "react-router-dom";
 class Header extends React.Component {
-  render( ) {
+  render() {
     return (
       <React.Fragment>
         <nav
@@ -29,28 +29,28 @@ class Header extends React.Component {
                   className="navbar-item"
                 >
                   Home
-              </NavLink>
+                </NavLink>
                 <NavLink
                   to="/posts"
                   activeClassName="is-active"
                   className="navbar-item"
                 >
                   Posts
-              </NavLink>
+                </NavLink>
                 <NavLink
                   to="/projects"
                   activeClassName="is-active"
                   className="navbar-item"
                 >
                   Projects
-              </NavLink>
+                </NavLink>
                 <NavLink
                   to="/about"
                   activeClassName="is-active"
                   className="navbar-item"
                 >
                   About
-              </NavLink>
+                </NavLink>
                 <a className="navbar-item" href="#" target="_blank">
                   Star on <i className="fab fa-github" />
                 </a>
@@ -59,10 +59,9 @@ class Header extends React.Component {
           </div>
         </nav>
         {this.props.children}
-        </React.Fragment>
-
-    )
+      </React.Fragment>
+    );
   }
 }
 
-export default Header
+export default Header;
