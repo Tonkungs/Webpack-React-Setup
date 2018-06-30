@@ -6,6 +6,7 @@ import {
 } from "redux-devtools-extension";
 // เอาไว้ดีเลย์
 import thunk from "redux-thunk";
+import fooReducer from './../reducers/index'
 // const store = createStore(reducer, composeWithDevTools(
 //   applyMiddleware(...middleware),
 //   // other store enhancers if any
@@ -20,39 +21,15 @@ const logger = store => next => action => {
   return result;
 };
 
-const middlewares = [thunk, logger];
+// const middlewares = [thunk, logger];
+const middlewares = [thunk];
+
 
 const initialUserState = {
-  firstName: "",
-  lastName: ""
+  firstName: "tonsai",
+  lastName: "jomphun"
 };
-const countState = {
-  count: 0,
-  clicked: 0
-};
-const fooReducer = (state = countState, action) => {
-  switch (action.type) {
-    case "ADD":
-      state = {
-        ...state,
-        count: (state.count += action.payload),
-        clicked: (state.clicked += 1)
-      };
-      break;
-    case "SUBTRACT":
-      state = {
-        ...state,
-        count: (state.count -= action.payload),
-        clicked: (state.clicked += 1)
-      };
-      break;
-    // default:
-    //   throw "เลือก fooReducer ไม่ถูกต้อง";
-    //   break;
-  }
 
-  return state;
-};
 // If you want your entire store to have the form state...
 //   const store = createStore(combineForms({
 //     user: initialUserState,
@@ -80,7 +57,6 @@ const store = createStore(
 //   type: 'ADD',
 //   payload: 1
 // })
-// devToolsEnhancer()
 //   // Or you want to nest your form and model reducer under a specific key...
 //   const store = createStore(combineReducers({
 //     existing: existingReducer,

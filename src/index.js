@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 // We'll create this in step 3.
-import store from "./store.js";
+import store from "./store/store.js";
 const AppWithRouter = () => (
   <Provider store={store}>
     <BrowserRouter>
