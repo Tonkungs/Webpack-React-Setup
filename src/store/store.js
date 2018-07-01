@@ -21,8 +21,8 @@ const logger = store => next => action => {
   return result;
 };
 
-// const middlewares = [thunk, logger];
-const middlewares = [thunk];
+const middlewares = [thunk, logger];
+// const middlewares = [thunk];
 
 
 const initialUserState = {
@@ -37,37 +37,39 @@ const initialUserState = {
 
 // Or you have an existing store and want the form state to
 // exist alongside the existing state...
-const store = createStore(
-  combineReducers({
-    // existing: existingReducer,
-    foo: fooReducer,
-    // bar: barReducer,
+// const store = createStore(
+//   combineReducers({
+//     // existing: existingReducer,
+//     foo: fooReducer,
+//     // bar: barReducer,
 
-    // ... use createForms, which will create:
-    // the model reducer at "user"
-    // the forms reducer at "forms" (e.g., "forms.user")
-    ...createForms({
-      user: initialUserState
-    })
-  }),
-  composeWithDevTools(applyMiddleware(...middlewares))
-);
+//     // ... use createForms, which will create:
+//     // the model reducer at "user"
+//     // the forms reducer at "forms" (e.g., "forms.user")
+//     ...createForms({
+//       user: initialUserState
+//     })
+//   }),
+//   composeWithDevTools(applyMiddleware(...middlewares))
+// );
 
 // store.dispatch({
 //   type: 'ADD',
 //   payload: 1
 // })
 //   // Or you want to nest your form and model reducer under a specific key...
-//   const store = createStore(combineReducers({
-//     existing: existingReducer,
-//     foo: fooReducer,
-//     bar: barReducer,
+  const store = createStore(combineReducers({
+    // existing: existingReducer,
+    foo: fooReducer,
+    // bar: barReducer,
 
-//     // Make sure to specify the key as the second argument, so that RRF
-//     // knows where the form and model reducers exist in the store!
-//     myForms: combineForms({
-//       user: initialUserState,
-//     }, 'myForms'),
-//   }));
+    // Make sure to specify the key as the second argument, so that RRF
+    // knows where the form and model reducers exist in the store!
+    myForms: combineForms({
+      user: initialUserState,
+    }, 'myForms'),
+  }),
+  composeWithDevTools(applyMiddleware(...middlewares))
+);
 
 export default store;

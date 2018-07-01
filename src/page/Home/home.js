@@ -32,6 +32,15 @@ class Home extends React.Component {
     // dispatch(actions.submit('user', somePromise));
     // etc.
   }
+  handleChange(values) {
+    console.log('handleChange',values)
+  }
+  handleUpdate(form) {
+    console.log('handleUpdate',form)
+  }
+  handleSubmit(values)  {
+    console.log('handleSubmit',values)
+  }
   render() {
     return (
       <span>
@@ -62,12 +71,16 @@ class Home extends React.Component {
                 placeholder="Text input"
                 value={this.state.value}
               />
-              <Form model="user" onSubmit={user => this.handleSubmit(user)}>
-                <label htmlFor="user.firstName">First name:</label>
-                <Control.text className="input" model="user.firstName" id="user.firstName" />
+              <Form model="myForms.user" 
+              onSubmit={user => this.handleSubmit(user)}
+              onUpdate={(form) => this.handleUpdate(form)}
+              onChange={(values) => this.handleChange(values)}
+              >
+                <label htmlFor=".firstName">First name:</label>
+                <Control.text className="input" model=".firstName" id=".firstName" />
 
-                <label htmlFor="user.lastName">Last name:</label>
-                <Control.text className="input" model="user.lastName" id="user.lastName" />
+                <label htmlFor=".lastName">Last name:</label>
+                <Control.text className="input" model=".lastName" id=".lastName" />
 
                 <button type="submit">Finish registration!</button>
               </Form>
