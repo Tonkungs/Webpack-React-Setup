@@ -2,6 +2,7 @@ const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+// https://devahoy.com/posts/basic-web-with-react-router-v4/
 //engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
 module.exports = {
     entry: './src/index.js',
