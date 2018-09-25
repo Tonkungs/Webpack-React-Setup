@@ -27,7 +27,7 @@ export const subCount = payload => {
 };
 
 const fetchPosts = subreddit => dispatch => {
-  return fetch("", {
+  return fetch("https://murmuring-citadel-13024.herokuapp.com/api/v1/iguser", {
     mode: "cors"
   })
     .then(response => response.json())
