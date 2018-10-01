@@ -1,71 +1,88 @@
-const { resolve } = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 // https://devahoy.com/posts/basic-web-with-react-router-v4/
 //engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        filename: 'bundle.js',
-        path: resolve(__dirname, 'dist'),
-        //ไว้บอก path เริ่มต้น
-        // publicPath: '/'
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'],
-                        plugins: ["react-hot-loader/babel"],
-                    },
-                },
-            },
-            {
-                test: /\.css$/,
-                exclude: /(node_modules)/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                ],
-            },
-            {
-                test: /\.scss$/,
-                exclude: /(node_modules)/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                    { loader: 'sass-loader' },
-                ],
-            },
-            {
-                test: /\.png$/,
-                exclude: /(node_modules)/,
-                use: [
-                    { loader: 'file-loader' },
-                ],
-            },
-        ],
-    },
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-        }),
-        // new BundleAnalyzerPlugin()
-    ],
-    devServer: {
-        //ให้เว็บเรียก url ตรงๆ ได้
-        historyApiFallback: true,
-        hot: true,
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: resolve(__dirname, "dist")
+    // chunkFilename: '[chunkhash:12].js',
+    // filename: '[chunkhash:12].js'
+    //ไว้บอก path เริ่มต้น
+    // publicPath: '/'
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            plugins: ["react-hot-loader/babel"]
+          }
+        }
       },
-}
+      {
+        test: /(\.css$)/,
+        include: /(node_modules)/,
+        loaders: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader?limit=100000"
+      }
+      // {
+      //   test: /\.css$/,
+      //   exclude: /(node_modules)/,
+      //   use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+      // },
+      // {
+      //   test: /\.scss$/,
+      //   exclude: /(node_modules)/,
+      //   use: [
+      //     { loader: "style-loader" },
+      //     { loader: "css-loader" },
+      //     { loader: "sass-loader" }
+      //   ]
+      // },
+      // {
+      //   test: /\.png$/,
+      //   exclude: /(node_modules)/,
+      //   use: [{ loader: "file-loader" }]
+      // },
+      // {
+      //   test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
+      //   loader: "file-loader?name=[hash:12].[ext]"
+      // }
+    ]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production")
+    }),
+    new CleanWebpackPlugin(["dist"]),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: "src/index.html"
+    })
+    // new BundleAnalyzerPlugin()
+  ],
+  devServer: {
+    //ให้เว็บเรียก url ตรงๆ ได้
+    historyApiFallback: true,
+    hot: true
+  }
+};
 // const webpack = require('webpack')
 // const path = require('path')
 
