@@ -2,7 +2,7 @@ import React from "react";
 import { Control, Form, actions } from "react-redux-form";
 import MenuNav from "./../../components/MenuNav";
 import BreadCrumb from "./../../components/BreadCrumb";
-import { Button as ButtonEl, Input as InputEl } from "element-react";
+import { Button as ButtonEl ,Input as InputEl } from 'element-react';
 
 // import 'element-theme-default';
 class Home extends React.Component {
@@ -35,13 +35,13 @@ class Home extends React.Component {
     // etc.
   }
   handleChange(values) {
-    console.log("handleChange", values);
+    console.log('handleChange',values)
   }
   handleUpdate(form) {
-    console.log("handleUpdate", form);
+    console.log('handleUpdate',form)
   }
-  handleSubmit(values) {
-    console.log("handleSubmit", values);
+  handleSubmit(values)  {
+    console.log('handleSubmit',values)
   }
   render() {
     return (
@@ -76,25 +76,16 @@ class Home extends React.Component {
                 placeholder="Text input"
                 value={this.state.value}
               />
-              <Form
-                model="myForms.user"
-                onSubmit={user => this.handleSubmit(user)}
-                onUpdate={form => this.handleUpdate(form)}
-                onChange={values => this.handleChange(values)}
+              <Form model="myForms.user" 
+              onSubmit={user => this.handleSubmit(user)}
+              onUpdate={(form) => this.handleUpdate(form)}
+              onChange={(values) => this.handleChange(values)}
               >
                 <label htmlFor=".firstName">First name:</label>
-                <Control.text
-                  className="input"
-                  model=".firstName"
-                  id=".firstName"
-                />
+                <Control.text className="input" model=".firstName" id=".firstName" />
 
                 <label htmlFor=".lastName">Last name:</label>
-                <Control.text
-                  className="input"
-                  model=".lastName"
-                  id=".lastName"
-                />
+                <Control.text className="input" model=".lastName" id=".lastName" />
 
                 <button type="submit">Finish registration!</button>
               </Form>

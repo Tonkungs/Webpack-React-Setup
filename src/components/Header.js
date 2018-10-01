@@ -13,7 +13,7 @@ class Header extends React.Component {
             <div className="navbar-brand">
               <a className="navbar-item" href="#">
                 <img
-                  src="https://devahoy.com/assets/images/devahoy-text-logo.png"
+                  src=""
                   alt="DEVAHOY LOGO"
                   width="112"
                   height="28"
