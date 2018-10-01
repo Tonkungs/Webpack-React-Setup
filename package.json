@@ -37,13 +37,14 @@
     "redux-devtools-extension": "^2.13.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
+    "url-loader": "^1.1.1",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.9",
-    "url-loader": "^1.1.1"
+    "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "element-react": "^1.4.21",
     "element-theme-default": "^1.4.13",
     "install": "^0.12.1",

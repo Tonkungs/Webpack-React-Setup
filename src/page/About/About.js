@@ -3,10 +3,10 @@ import { Control, Form, actions } from "react-redux-form";
 import MenuNav from "./../../components/MenuNav";
 import BreadCrumb from "./../../components/BreadCrumb";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types'; 
+import PropTypes from "prop-types";
 import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
+import { withRouter } from "react-router-dom";
 class About extends React.Component {
- 
   constructor(props) {
     super(props);
 
@@ -14,9 +14,8 @@ class About extends React.Component {
       value: 0
     };
 
-    this.addCount = this.addCount.bind(this)
-    this.subTractCount = this.subTractCount.bind(this)
-    
+    this.addCount = this.addCount.bind(this);
+    this.subTractCount = this.subTractCount.bind(this);
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -85,7 +84,7 @@ About.propTypes = {
   // isFetching: PropTypes.bool.isRequired,
   // lastUpdated: PropTypes.number,
   dispatch: PropTypes.func.isRequired
-}
+};
 
 const mapStatetoProps = state => {
   return {
@@ -124,7 +123,9 @@ const mapStatetoProps = state => {
 // };
 
 // export default About;
-export default connect(
-  mapStatetoProps
-  // mapDispatchtoProps
-)(About);
+export default withRouter(
+  connect(
+    mapStatetoProps
+    // mapDispatchtoProps
+  )(About)
+);

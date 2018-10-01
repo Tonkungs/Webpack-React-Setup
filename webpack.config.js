@@ -10,11 +10,11 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: resolve(__dirname, "dist")
+    path: resolve(__dirname, "dist"),
     // chunkFilename: '[chunkhash:12].js',
     // filename: '[chunkhash:12].js'
     //ไว้บอก path เริ่มต้น
-    // publicPath: '/'
+    publicPath: '/'
   },
   resolve: {
     extensions: [".js", ".jsx"]
