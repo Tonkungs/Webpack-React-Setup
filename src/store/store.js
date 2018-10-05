@@ -1,17 +1,28 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { combineForms, createForms, actionTypes } from "react-redux-form";
 import {
-  composeWithDevTools,
-  devToolsEnhancer
+  createStore,
+  applyMiddleware,
+  combineReducers
+} from "redux";
+// import { combineForms, createForms, actionTypes } from "react-redux-form";
+import {
+  combineForms
+} from "react-redux-form";
+// import {
+//   composeWithDevTools,
+//   devToolsEnhancer
+// } from "redux-devtools-extension";
+import {
+  composeWithDevTools
 } from "redux-devtools-extension";
 // เอาไว้ดีเลย์
 import thunk from "redux-thunk";
-import fooReducer from './../reducers/index'
+import fooReducer from "../reducers/index"
 // const store = createStore(reducer, composeWithDevTools(
 //   applyMiddleware(...middleware),
 //   // other store enhancers if any
 // ));
-const logger = store => next => action => {
+// const logger = store => next => action => {
+const logger = () => next => action => {
   // console.group(action.type)
   // console.log('current state', store.getState())
   // console.log('dispatching', action)
@@ -58,7 +69,7 @@ const initialUserState = {
 //   payload: 1
 // })
 //   // Or you want to nest your form and model reducer under a specific key...
-  const store = createStore(combineReducers({
+const store = createStore(combineReducers({
     // existing: existingReducer,
     foo: fooReducer,
     // bar: barReducer,

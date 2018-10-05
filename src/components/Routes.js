@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Switch ,Link} from "react-router-dom";
 import Loadable from "react-loadable";
-// import Home from "./../page/Home/home";
-// import About from "./../page/About/About";
 const Post = () => <h1>Post</h1>;
 const Project = () => <h1>Project</h1>;
 const Child = ({match}) => <h1>Child {console.log(match)}</h1>;
@@ -40,27 +38,10 @@ const About = Loadable({
     import(/* webpackChunkName: "About.page"*/ "./../page/About/About"),
   loading: () => null
 });
-class Header extends React.Component {
-  previousLocation = this.props.location;
-
-  componentWillUpdate(nextProps) {
-    const { location } = this.props;
-    // set previousLocation if props.location is not modal
-    // if (
-    //   nextProps.history.action !== "POP" &&
-    //   (!location.state || !location.state.modal)
-    // ) {
-    //   this.previousLocation = this.props.location;
-    // }
-  }
+class Routes extends React.Component {
+  // previousLocation = this.props.location;
 
   render() {
-    // const { location } = this.props;
-    // const isModal = !!(
-    //   location.state &&
-    //   location.state.modal &&
-    //   this.previousLocation !== location
-    // ); // not initial render
     return (
       <div>
         <Switch >
@@ -72,10 +53,9 @@ class Header extends React.Component {
           <Route path="/topic/:id" component={Topics} />
           <Route component={NotFoundPage} />
         </Switch>
-        {/* {isModal ? <Route path="/child/:id" component={Child} /> : null} */}
       </div>
     );
   }
 }
 
-export default Header;
+export default Routes;

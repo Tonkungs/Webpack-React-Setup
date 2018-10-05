@@ -1,22 +1,24 @@
 import React from "react";
-import { Control, Form, actions } from "react-redux-form";
-import MenuNav from "./../../components/MenuNav";
-import BreadCrumb from "./../../components/BreadCrumb";
+// import { Control, Form, actions } from "react-redux-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
 import { withRouter } from "react-router-dom";
+// import MenuNav from "../../components/MenuNav";
+import BreadCrumb from "../../components/BreadCrumb";
+import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
+
 class About extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: 0
-    };
+    // this.state = {
+    //   value: 0
+    // };
 
     this.addCount = this.addCount.bind(this);
     this.subTractCount = this.subTractCount.bind(this);
   }
+
   componentDidMount() {
     console.log("componentDidMount");
     const { dispatch, fooReducers } = this.props;
@@ -32,25 +34,27 @@ class About extends React.Component {
     console.log(2222);
     // console.log(this.props.dispatch);
     const { dispatch, fooReducers } = this.props;
-    // dispatch(postAddCount(fooReducers))
-    this.props.dispatch(postAddCount({}));
+    dispatch(postAddCount(fooReducers))
+    // this.props.dispatch(postAddCount({}));
   }
+
   subTractCount() {
     // console.log(this.props.dispatch);
     const { dispatch, fooReducers } = this.props;
-    // dispatch(postSubCount(fooReducers))
-    this.props.dispatch(postSubCount({}));
+    dispatch(postSubCount(fooReducers))
+    // this.props.dispatch(postSubCount({}));
   }
+
   render() {
-    let foo = this.props.foo;
+    const {foo} = this.props;
     return (
       <React.Fragment>
         <BreadCrumb />
         <h2>About</h2>
-        <a className="button" onClick={this.addCount}>
+        <a href className="button" onClick={this.addCount}>
           เพิ่มค่า
         </a>
-        <a className="button" onClick={this.subTractCount}>
+        <a href className="button" onClick={this.subTractCount}>
           ลบค่า
         </a>
         {foo.fooReducers.count} || {foo.fooReducers.clicked}
@@ -63,14 +67,12 @@ class About extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {foo.fooReducers.data.data.map(function(object, index) {
-              return (
+            {foo.fooReducers.data.data.map((object, index) => (
                 <tr key={object.id}>
                   <td>{index + 1}</td>
                   <td>{object.ig_user}</td>
                 </tr>
-              );
-            })}
+              ))}
           </tbody>
         </table>
       </React.Fragment>
@@ -86,11 +88,9 @@ About.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 
-const mapStatetoProps = state => {
-  return {
+const mapStatetoProps = state => ({
     foo: state.foo
-  };
-};
+  });
 // const mapDispatchtoProps = dispatch => {
 //   return {
 //     click: clicked => {

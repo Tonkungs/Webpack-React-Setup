@@ -1,13 +1,17 @@
+/** @format */
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import App from './App'
 // import registerServiceWorker from './registerServiceWorker';
 
 import 'element-theme-default'
 // We'll create this in step 3.
-import store from './store/store.js'
+import store from './store/store'
+
 const AppWithRouter = () => (
   <Provider store={store}>
     <BrowserRouter>

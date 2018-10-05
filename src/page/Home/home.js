@@ -1,8 +1,9 @@
 import React from "react";
-import { Control, Form, actions } from "react-redux-form";
-import MenuNav from "./../../components/MenuNav";
-import BreadCrumb from "./../../components/BreadCrumb";
+// import { Control, Form, actions } from "react-redux-form";
+import { Control, Form } from "react-redux-form";
 import { Button as ButtonEl ,Input as InputEl } from 'element-react';
+import MenuNav from "../../components/MenuNav";
+import BreadCrumb from "../../components/BreadCrumb";
 
 // import 'element-theme-default';
 class Home extends React.Component {
@@ -15,35 +16,39 @@ class Home extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
-    let { value } = e.currentTarget;
-    console.log(value);
+    const { value } = e.currentTarget;
+    // console.log(value);
     //   this.setState({
     //       counter: this.state.counter + 1
     //   })
     // กัน side effect เลยใช่ข้างล่างแทน
-    this.setState(prevState => ({
-      value: value
+    // this.setState(prevState => ({
+    //   value
+    // }));
+     this.setState(() => ({
+      value
     }));
   }
+
   handleSubmit(user) {
     console.log(user);
-    // Do whatever you like in here.
-    // If you connect the UserForm to the Redux store,
-    // you can dispatch actions such as:
-    // dispatch(actions.submit('user', somePromise));
-    // etc.
   }
+
   handleChange(values) {
     console.log('handleChange',values)
   }
+
   handleUpdate(form) {
     console.log('handleUpdate',form)
   }
+
   handleSubmit(values)  {
     console.log('handleSubmit',values)
   }
-  render() {
+
+  render({state}) {
     return (
       <span>
         <section className="hero is-medium is-primary is-bold">
@@ -68,13 +73,13 @@ class Home extends React.Component {
             kkkkkkkkkkkkkkkkkkkkkk
             <div className="content">
               <h3 className="title is-3">Manage Your Team</h3>
-              value = {this.state.value}
+              value = {state.value}
               <input
                 className="input"
                 onChange={this.handleClick}
                 type="text"
                 placeholder="Text input"
-                value={this.state.value}
+                value={state.value}
               />
               <Form model="myForms.user" 
               onSubmit={user => this.handleSubmit(user)}
