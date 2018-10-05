@@ -8,27 +8,28 @@ const countState = {
     data: []
   }
 };
-/* eslint no-param-reassign: "error" */
+// /* eslint-disable no-param-reassign */
 const fooReducers = (state = countState, action) => {
   // console.log("action.type", action.type);
   // console.log("action.payload", action.payload);
+  let newState = {}
   switch (action.type) {
     case REQUEST_IN:
-      state = {
+      newState = {
         ...state,
         data: action.payload
       };
       
       break;
     case ADD_COUNT:
-      state = {
+      newState = {
         ...state,
         count: state.count + 1,
         clicked: state.clicked + 1
       };
       break;
     case SUBTRACT_COUNT:
-      state = {
+    newState = {
         ...state,
         count: state.count - 1,
         clicked: state.clicked + 1
@@ -38,8 +39,9 @@ const fooReducers = (state = countState, action) => {
       return state;
   }
 
-  return state;
+  return newState;
 };
+// /* eslint-disable no-param-reassign */
 const fooReducer = combineReducers({
   fooReducers
 });

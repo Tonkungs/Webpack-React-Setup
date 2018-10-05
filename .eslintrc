@@ -1,7 +1,14 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
   "plugins": ["react", "prettier"],
   "rules": {
+    "linebreak-style": 0,
     "react/jsx-filename-extension": [
       1,
       {
@@ -9,11 +16,32 @@
       }
     ],
     "prettier/prettier": "error",
-    "max-len": ["error",  { "ignoreComments": true }],
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": true
-    }],
-    "no-param-reassign":[2,{ "props": true, "ignorePropertyModificationsFor": ["state"] }]
+    "max-len": [
+      "error",
+      {
+        "code": 255,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+    "class-methods-use-this": "off",
+    "jsx-a11y/label-has-for": false,
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["label"],
+        "labelAttributes": ["htmlFor"]
+      }
+    ]
   },
   "env": {
     "browser": true

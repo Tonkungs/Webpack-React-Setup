@@ -15,6 +15,9 @@ class Home extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleClick(e) {
@@ -33,6 +36,7 @@ class Home extends React.Component {
   }
 
   handleSubmit(user) {
+    // e.preventDefault();
     console.log(user);
   }
 
@@ -44,11 +48,9 @@ class Home extends React.Component {
     console.log('handleUpdate',form)
   }
 
-  handleSubmit(values)  {
-    console.log('handleSubmit',values)
-  }
 
-  render({state}) {
+  render() {
+    const {value }= this.state
     return (
       <span>
         <section className="hero is-medium is-primary is-bold">
@@ -73,13 +75,13 @@ class Home extends React.Component {
             kkkkkkkkkkkkkkkkkkkkkk
             <div className="content">
               <h3 className="title is-3">Manage Your Team</h3>
-              value = {state.value}
+              value = {value}
               <input
                 className="input"
                 onChange={this.handleClick}
                 type="text"
                 placeholder="Text input"
-                value={state.value}
+                value={value}
               />
               <Form model="myForms.user" 
               onSubmit={user => this.handleSubmit(user)}
@@ -87,8 +89,7 @@ class Home extends React.Component {
               onChange={(values) => this.handleChange(values)}
               >
                 <label htmlFor=".firstName">First name:</label>
-                <Control.text className="input" model=".firstName" id=".firstName" />
-
+                <Control.text type="text" className="input" model=".firstName" id=".firstName" />
                 <label htmlFor=".lastName">Last name:</label>
                 <Control.text className="input" model=".lastName" id=".lastName" />
 

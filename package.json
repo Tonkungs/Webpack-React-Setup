@@ -5,6 +5,19 @@
   "engines": {
     "node": ">=8.10.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint"
+    ],
+    "*.{js,jsx,json,md}": [
+      "prettier --list-different"
+    ]
+  },
   "license": "MIT",
   "scripts": {
     "p": "prettier --write 'src/**/*.js'",
@@ -22,6 +35,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "8",
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
@@ -54,6 +68,7 @@
     "element-react": "^1.4.21",
     "element-theme-default": "^1.4.13",
     "install": "^0.12.1",
+    "npm": "^6.4.1",
     "onchange": "^5.0.2",
     "prettier": "^1.14.3",
     "prop-types": "^15.6.2",

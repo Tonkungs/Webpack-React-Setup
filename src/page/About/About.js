@@ -1,9 +1,9 @@
 import React from "react";
 // import { Control, Form, actions } from "react-redux-form";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 // import MenuNav from "../../components/MenuNav";
+import PropTypes from 'prop-types';
 import BreadCrumb from "../../components/BreadCrumb";
 import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
 
@@ -20,7 +20,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
+    // console.log("componentDidMount");
     const { dispatch, fooReducers } = this.props;
     dispatch(getFetchPost(fooReducers));
 
@@ -31,7 +31,7 @@ class About extends React.Component {
   //   this.props.dispatch(selectSubreddit(nextSubreddit));
   // };
   addCount() {
-    console.log(2222);
+    // console.log(2222);
     // console.log(this.props.dispatch);
     const { dispatch, fooReducers } = this.props;
     dispatch(postAddCount(fooReducers))
@@ -79,12 +79,14 @@ class About extends React.Component {
     );
   }
 }
-// MyComponent.propTypes = {
+
 About.propTypes = {
   // selectedSubreddit: PropTypes.string.isRequired,
   // posts: PropTypes.array.isRequired,
   // isFetching: PropTypes.bool.isRequired,
   // lastUpdated: PropTypes.number,
+  foo: PropTypes.shape({ foo: {} }).isRequired,
+  fooReducers: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired
 };
 

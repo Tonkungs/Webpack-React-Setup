@@ -64,7 +64,7 @@ import { NavLink } from "react-router-dom";
 //     );
 //   }
 // }
-const Header = ({children}) =>(
+const Header = () =>(
   <React.Fragment>
   <nav
     className="navbar is-primary"
@@ -120,7 +120,6 @@ const Header = ({children}) =>(
       </div>
     </div>
   </nav>
-  {children}
 </React.Fragment>
   )
 export default Header;
