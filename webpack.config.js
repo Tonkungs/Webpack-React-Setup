@@ -2,10 +2,9 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 // https://devahoy.com/posts/basic-web-with-react-router-v4/
-//engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
+// engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -13,7 +12,7 @@ module.exports = {
     path: resolve(__dirname, "dist"),
     // chunkFilename: '[chunkhash:12].js',
     // filename: '[chunkhash:12].js'
-    //ไว้บอก path เริ่มต้น
+    // ไว้บอก path เริ่มต้น
     publicPath: '/'
   },
   resolve: {
@@ -78,9 +77,19 @@ module.exports = {
     // new BundleAnalyzerPlugin()
   ],
   devServer: {
-    //ให้เว็บเรียก url ตรงๆ ได้
+    // ให้เว็บเรียก url ตรงๆ ได้
+    // host: '0.0.0.0',
+    // port: 8080,
+    // noInfo: true,
+    // historyApiFallback: true,
+    // hot: true
     historyApiFallback: true,
-    hot: true
+    noInfo: true,
+    contentBase: './dist',
+    host: '127.0.0.1',
+    hot: true,
+    open: true,
+    inline: true
   }
 };
 // const webpack = require('webpack')
