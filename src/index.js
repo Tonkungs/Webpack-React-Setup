@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import App from './App'
 // import registerServiceWorker from './registerServiceWorker';
 
-import 'element-theme-default'
+// import 'element-theme-default'
 // We'll create this in step 3.
 import store from './store/store'
 

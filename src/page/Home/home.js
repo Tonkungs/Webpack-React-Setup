@@ -1,11 +1,11 @@
 import React from "react";
 // import { Control, Form, actions } from "react-redux-form";
 import { Control, Form } from "react-redux-form";
-import { Button as ButtonEl ,Input as InputEl } from 'element-react';
+// import 'element-theme-default/lib/input.css';
+// import { Button as ButtonEl ,Input as InputEl } from 'element-react';
 import MenuNav from "../../components/MenuNav";
 import BreadCrumb from "../../components/BreadCrumb";
 
-// import 'element-theme-default';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ class Home extends React.Component {
           <div className="hero-body">
             <div className="container">
               <h1 className="title">
-                หน้าแรกใหญ่ไหม
+                หน้าแรกใหญ่ไหม 
                 <i className="fab fa-font-awesome" />
               </h1>
               <h2 className="subtitle">Primary bold subtitle</h2>
@@ -70,8 +70,8 @@ class Home extends React.Component {
           </div>
           <div className="column">
             <BreadCrumb />
-            <ButtonEl type="primary">Hello</ButtonEl>
-            <InputEl placeholder="Please input" />
+            {/* <ButtonEl type="primary">Hello ก</ButtonEl> */}
+            {/* <InputEl placeholder="Please input" /> */}
             kkkkkkkkkkkkkkkkkkkkkk
             <div className="content">
               <h3 className="title is-3">Manage Your Team</h3>

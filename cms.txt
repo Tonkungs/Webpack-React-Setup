@@ -2,3 +2,11 @@ https://medium.com/@joshuacrass/javascript-linting-and-formatting-with-eslint-pr
 
 การคอมมิค
 yarn check-staged
+
+หาคอมโพแนน
+https://react.parts/
+http://react-component.github.io/badgeboard/
+
+https://elemefe.github.io/element-react/#/en-US/message-box
+
+https://www.styled-components.com/docs/basics#installation
