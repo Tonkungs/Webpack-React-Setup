@@ -11,3 +11,12 @@ http://react-component.github.io/badgeboard/
 https://elemefe.github.io/element-react/#/en-US/message-box
 
 https://www.styled-components.com/docs/basics#installation
+
+สอนใช้ formik กับ ants
+https://medium.com/@kalle.pyorala/testing-out-formik-and-ant-with-redux-edfab6511a24
+
+สอนเซ็ต
+https:// https://medium.freecodecamp.org/how-to-use-reactjs-with-webpack-4-babel-7-and-material-design-ff754586f618
+
+ตัวอย่างการเซ้น redux-form + ants
+https://codesandbox.io/s/jzyl70wpk
