@@ -1,18 +1,19 @@
 import React from "react";
 // import { Control, Form, actions } from "react-redux-form";
-import { Control, Form ,Field } from "react-redux-form";
+// import { Control, Form ,Field } from "react-redux-form";
 // import 'element-theme-default/lib/input.css';
 // import { Button as ButtonEl ,Input as InputEl } from 'element-react';
 // import MenuNav from "../../components/MenuNav";
 // import BreadCrumb from "../../components/BreadCrumb";
-import { DatePicker,Button ,Table, Divider, Tag ,Input  } from 'antd';
+// import { DatePicker,Button ,Table, Divider, Tag ,Input  } from 'antd';
+import { Formik } from 'formik';
 // import 'antd/dist/antd.css'; 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: 0
+      // value: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -51,60 +52,60 @@ class Home extends React.Component {
 
 
   render() {
-    const {value }= this.state;
-    const columns = [{
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a href="/">{text}</a>,
-    }, {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    }, {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    }, {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <span>
-          {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
-        </span>
-      ),
-    }, {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <span>
-          <a href="/">Invite {record.name}</a>
-          <Divider type="vertical" />
-          <a href="/">Delete</a>
-        </span>
-      ),
-    }];
+    // const {value }= this.state;
+    // const columns = [{
+    //   title: 'Name',
+    //   dataIndex: 'name',
+    //   key: 'name',
+    //   render: text => <a href="/">{text}</a>,
+    // }, {
+    //   title: 'Age',
+    //   dataIndex: 'age',
+    //   key: 'age',
+    // }, {
+    //   title: 'Address',
+    //   dataIndex: 'address',
+    //   key: 'address',
+    // }, {
+    //   title: 'Tags',
+    //   key: 'tags',
+    //   dataIndex: 'tags',
+    //   render: tags => (
+    //     <span>
+    //       {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
+    //     </span>
+    //   ),
+    // }, {
+    //   title: 'Action',
+    //   key: 'action',
+    //   render: (text, record) => (
+    //     <span>
+    //       <a href="/">Invite {record.name}</a>
+    //       <Divider type="vertical" />
+    //       <a href="/">Delete</a>
+    //     </span>
+    //   ),
+    // }];
     
-    const data = [{
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    }, {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    }, {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    }];
+    // const data = [{
+    //   key: '1',
+    //   name: 'John Brown',
+    //   age: 32,
+    //   address: 'New York No. 1 Lake Park',
+    //   tags: ['nice', 'developer'],
+    // }, {
+    //   key: '2',
+    //   name: 'Jim Green',
+    //   age: 42,
+    //   address: 'London No. 1 Lake Park',
+    //   tags: ['loser'],
+    // }, {
+    //   key: '3',
+    //   name: 'Joe Black',
+    //   age: 32,
+    //   address: 'Sidney No. 1 Lake Park',
+    //   tags: ['cool', 'teacher'],
+    // }];
     
     return (
       <span>
@@ -124,8 +125,61 @@ class Home extends React.Component {
             {/* <MenuNav /> */}
           </div>
           <div className="column">
+          <Formik
+            initialValues={{ email: 'ton', password: '069366366' }}
+            validate={values => {
+              const errors = {};
+              if (!values.email) {
+                errors.email = 'Required';
+              } else if (
+                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+              ) {
+                errors.email = 'Invalid email address';
+              }
+              return errors;
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400);
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+              /* and other goodies */
+            }) => (
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+                {errors.email && touched.email && errors.email}
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                />
+                {errors.password && touched.password && errors.password}
+                <button type="submit" disabled={isSubmitting}>
+                  Submit
+                </button>
+        </form>
+      )}
+    </Formik>
             {/* <BreadCrumb /> */}
-            <DatePicker />
+            {/* <DatePicker />
             <Button type="primary">Primary</Button>
     <Button>Default</Button>
     <Button type="dashed">Dashed</Button>
@@ -137,11 +191,11 @@ class Home extends React.Component {
           name="favoriteColor"
           component={Input}
           
-          model=".firstName" id=".firstName"/>
+          model=".firstName" id=".firstName"/> */}
                 {/* <Control.text type="text" className="input" model=".firstName" id=".firstName" /> */}
             kkkkkkkkkkkkkkkkkkkkkk
             <div className="content">
-              <h3 className="title is-3">Manage Your Team</h3>
+              {/* <h3 className="title is-3">Manage Your Team</h3>
               value = {value}
               <input
                 className="input"
@@ -149,8 +203,8 @@ class Home extends React.Component {
                 type="text"
                 placeholder="Text input"
                 value={value}
-              />
-              <Form model="myForms.user" 
+              /> */}
+              {/* <Form model="myForms.user" 
               onSubmit={user => this.handleSubmit(user)}
               onUpdate={(form) => this.handleUpdate(form)}
               onChange={(values) => this.handleChange(values)}
@@ -161,7 +215,7 @@ class Home extends React.Component {
                 <Control.text className="input" model=".lastName" id=".lastName" />
 
                 <button type="submit">Finish registration!</button>
-              </Form>
+              </Form> */}
             </div>
           </div>
         </div>
