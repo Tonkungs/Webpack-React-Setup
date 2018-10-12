@@ -1,5 +1,6 @@
 https://medium.com/@joshuacrass/javascript-linting-and-formatting-with-eslint-prettier-and-airbnb-30eb746db862
 
+ใช้ ant design  แล้วจะ มีปัญหาโหลด css ตัวเองไม่ขึ้น
 การคอมมิค
 yarn check-staged
 

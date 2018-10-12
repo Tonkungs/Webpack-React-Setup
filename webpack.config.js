@@ -22,14 +22,14 @@
 //               }
 //             }
 //           },
-        //   {
-        //     test: /\.css$/,
-        //     exclude: /(node_modules)/,
-        //     use: [
-        //       { loader: 'style-loader' },
-        //       { loader: 'css-loader' },
-        //     ],
-        //   },
+//           {
+//             test: /\.css$/,
+//             exclude: /(node_modules)/,
+//             use: [
+//               { loader: 'style-loader' },
+//               { loader: 'css-loader' },
+//             ],
+//           },
 //           {
 //             test: /\.scss$/,
 //             exclude: /(node_modules)/,
@@ -58,6 +58,7 @@
 //     hot: true,
 //   },
 // }
+
 const { resolve } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -149,9 +150,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production")
-    }),
+    // new webpack.DefinePlugin({
+    //   "process.env.NODE_ENV": JSON.stringify("production")
+    // }),
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       template: "src/index.html"

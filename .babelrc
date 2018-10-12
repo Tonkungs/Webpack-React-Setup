@@ -4,6 +4,10 @@
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    [
+      "import",
+      { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }
+    ]
   ]
 }
