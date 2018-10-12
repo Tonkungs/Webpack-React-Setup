@@ -20,3 +20,5 @@ https:// https://medium.freecodecamp.org/how-to-use-reactjs-with-webpack-4-babel
 
 ตัวอย่างการเซ้น redux-form + ants
 https://codesandbox.io/s/jzyl70wpk
+
+yup ไว้ตรวจสอบค่า
