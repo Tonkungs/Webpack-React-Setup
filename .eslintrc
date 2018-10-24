@@ -35,13 +35,7 @@
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
     "class-methods-use-this": "off",
     "jsx-a11y/label-has-for": false,
-    "jsx-a11y/label-has-associated-control": [
-      2,
-      {
-        "labelComponents": ["label"],
-        "labelAttributes": ["htmlFor"]
-      }
-    ]
+    "jsx-a11y/label-has-associated-control": false
   },
   "env": {
     "browser": true
