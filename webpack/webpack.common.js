@@ -10,7 +10,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // อัดไฟล
 // const CompressionPlugin = require('compression-webpack-plugin'); // บีบอัดไฟล์
 // const zopfli = require('@gfx/zopfli'); // อัลกอริทึมบีบไฟล์
 
-
+// สอนตั้งค่า css module
+// https://medium.com/@vuong.qnguyen10/using-css-module-with-external-ui-library-in-create-react-app-bdd1495615c4
 // https://devahoy.com/posts/basic-web-with-react-router-v4/
 // engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
 module.exports = {
@@ -61,7 +62,21 @@ module.exports = {
       //   }
       // },
       {
+        test: /\.css$/,
+        exclude: [/src/],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            }
+          }
+        ]
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
+        exclude: [/node_modules/],
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           { loader: 'css-loader',
