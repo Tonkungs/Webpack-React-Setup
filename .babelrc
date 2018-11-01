@@ -4,6 +4,9 @@
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-react-jsx",
+    "@babel/transform-runtime",
+    "babel-plugin-react-css-modules",
     "react-hot-loader/babel",
     [
       "import",

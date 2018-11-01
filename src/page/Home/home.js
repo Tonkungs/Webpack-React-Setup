@@ -6,8 +6,8 @@ import React from "react";
 // import MenuNav from "../../components/MenuNav";
 // import BreadCrumb from "../../components/BreadCrumb";
 // import { DatePicker,Button ,Table, Divider, Tag ,Input  } from 'antd';
-import { Formik } from 'formik';
-import ButtonExampleButton from './exsimi';
+// import { Formik } from 'formik';
+// import ButtonExampleButton from './exsimi';
 import MyEnhancedForm from './formen';
 
 // import 'antd/dist/antd.css'; 
@@ -20,9 +20,6 @@ class Home extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleClick(e) {
@@ -39,19 +36,6 @@ class Home extends React.Component {
       value
     }));
   }
-
-  // handleSubmit(user) {
-  //   // e.preventDefault();
-  //   console.log(user);
-  // }
-
-  // handleChange(values) {
-  //   console.log('handleChange',values)
-  // }
-
-  // handleUpdate(form) {
-  //   console.log('handleUpdate',form)
-  // }
 
 
   render() {
@@ -75,60 +59,8 @@ class Home extends React.Component {
           </div>
           <div className="column">
           <MyEnhancedForm />
-          <ButtonExampleButton />
-          <Formik
-            initialValues={{ email: 'ton', password: '069366366' }}
-            validate={values => {
-              const errors = {};
-              if (!values.email) {
-                errors.email = 'Required';
-              } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-              ) {
-                errors.email = 'Invalid email address';
-              }
-              return errors;
-            }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
-            }}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-              /* and other goodies */
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                {errors.email && touched.email && errors.email}
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                />
-                {errors.password && touched.password && errors.password}
-                <button type="submit" disabled={isSubmitting}>
-                  Submit
-                </button>
-        </form>
-      )}
-    </Formik>
+          {/* <ButtonExampleButton /> */}
+          
             {/* <BreadCrumb /> */}
             {/* <DatePicker />
             <Button type="primary">Primary</Button>

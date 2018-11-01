@@ -5,17 +5,16 @@ import React from 'react'
 import { hot } from 'react-hot-loader'
 // import Header from './components/Header'
 import Routes from './components/Routes'
-import './App.css'
+// import styles from './App.css'
+import Heading from './components/headering/index' 
 
 const App = () => (
   <div>
-<h1>Webpack React Setup. sdsd</h1>
-  <div className="my-app">
     {/* <Header /> */}
-    <div className="App container">
-      <Routes />111
-    </div>
-  </div>
+    <Heading>Using the heading component!</Heading>
+    {/* <div className="App container"> */}
+      <Routes />
+    {/* </div> */}
   </div>
   
 )

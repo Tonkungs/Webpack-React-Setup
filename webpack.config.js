@@ -88,7 +88,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
@@ -119,11 +119,31 @@ module.exports = {
       //     plugins: () => [require('autoprefixer')]
       //   }
       // },
+    //   {
+    //     test: /\.css$/,
+    //     use: [
+    //         'style-loader',
+    //         {
+    //             loader: 'css-loader',
+    //             options: {
+    //                 importLoaders: 1,
+    //                 modules: true,
+    //                 localIdentName: '[path]___[name]__[local]___[hash:base64:5]', // Add naming scheme
+    //             },
+    //         },
+    //     ],
+    // },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },//'css-loader',
+          { loader: 'css-loader',
+           options: { 
+             importLoaders: 1, 
+              modules: true,
+              localIdentName: '[path]___[name]__[local]___[hash:base64:5]', // Add naming scheme
+            }
+           },//'css-loader',
           // 'postcss-loader',
           'sass-loader',
         ],
@@ -155,6 +175,7 @@ module.exports = {
     // }),
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
+      inject: true,
       template: "src/index.html"
     }),
     new MiniCssExtractPlugin({

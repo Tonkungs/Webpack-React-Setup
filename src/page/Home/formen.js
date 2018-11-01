@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import { Form } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css';
 
 const formikEnhancer = withFormik({
     validationSchema: Yup.object().shape({
@@ -83,7 +83,7 @@ const MyForm = props => {
   MyForm.propTypes = {
     values:PropTypes.shape({}).isRequired,
     touched:PropTypes.shape({}).isRequired,
-    dirty:PropTypes.shape({}).isRequired,
+    dirty:PropTypes.bool.isRequired,
     errors:PropTypes.shape({}).isRequired,
     handleChange:PropTypes.func.isRequired,
     handleBlur:PropTypes.func.isRequired,
