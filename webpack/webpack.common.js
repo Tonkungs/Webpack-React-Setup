@@ -1,74 +1,15 @@
-// const { resolve } = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const webpack = require('webpack')
-
-// module.exports = {
-//   entry: './src/index.js',
-//   output: {
-//     filename: 'bundle.js',
-//     path: resolve(__dirname, 'dist'),
-//     publicPath: '/'
-//   },
-//   module: {
-//     rules: [
-//         {
-//             test: /\.js$/,
-//             exclude: /(node_modules)/,
-//             use: {
-//               loader: "babel-loader",
-//               options: {
-//                 presets: ["@babel/preset-env", "@babel/preset-react"],
-//                 plugins: ["react-hot-loader/babel"]
-//               }
-//             }
-//           },
-//           {
-//             test: /\.css$/,
-//             exclude: /(node_modules)/,
-//             use: [
-//               { loader: 'style-loader' },
-//               { loader: 'css-loader' },
-//             ],
-//           },
-//           {
-//             test: /\.scss$/,
-//             exclude: /(node_modules)/,
-//             use: [
-//               { loader: 'style-loader' },
-//               { loader: 'css-loader' },
-//               { loader: 'sass-loader' },
-//             ],
-//           },
-//           {
-//             test: /\.png$/,
-//             exclude: /(node_modules)/,
-//             use: [
-//               { loader: 'file-loader' },
-//             ],
-//           },
-//     ],
-//   },
-//   plugins: [
-//     new webpack.HotModuleReplacementPlugin(),
-//     new HtmlWebpackPlugin({
-//       template: 'src/index.html',
-//     }),
-//   ],
-//   devServer: {
-//     hot: true,
-//   },
-// }
-
 const { resolve } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const devMode = process.env.NODE_ENV !== 'production';
-const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
-const CompressionPlugin = require('compression-webpack-plugin'); // บีบอัดไฟล์
-const zopfli = require('@gfx/zopfli'); // อัลกอริทึมบีบไฟล์
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // อัดไฟล์เข้าไป
+// const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
+// const CompressionPlugin = require('compression-webpack-plugin'); // บีบอัดไฟล์
+// const zopfli = require('@gfx/zopfli'); // อัลกอริทึมบีบไฟล์
+
 
 // https://devahoy.com/posts/basic-web-with-react-router-v4/
 // engineering.thinknet.co.th/tutorial-เซ็ตอัพ-webpack-และ-react-ตั้งแต่เริ่มต้นจน-deploy-fa3d53e96469
@@ -76,7 +17,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     // filename: "bundle.js",
-    path: resolve(__dirname, "dist"),
+    path: resolve(__dirname, "../dist"),
     // chunkFilename: '[chunkhash:12].js',
     filename: '[name].[hash].bundle.js',
     // ไว้บอก path เริ่มต้น
@@ -119,20 +60,6 @@ module.exports = {
       //     plugins: () => [require('autoprefixer')]
       //   }
       // },
-    //   {
-    //     test: /\.css$/,
-    //     use: [
-    //         'style-loader',
-    //         {
-    //             loader: 'css-loader',
-    //             options: {
-    //                 importLoaders: 1,
-    //                 modules: true,
-    //                 localIdentName: '[path]___[name]__[local]___[hash:base64:5]', // Add naming scheme
-    //             },
-    //         },
-    //     ],
-    // },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
@@ -143,7 +70,7 @@ module.exports = {
               modules: true,
               localIdentName: '[path]___[name]__[local]___[hash:base64:5]', // Add naming scheme
             }
-           },//'css-loader',
+           }, // d
           // 'postcss-loader',
           'sass-loader',
         ],
@@ -201,22 +128,22 @@ module.exports = {
     // วิเคราะห์ขนาดไฟล์
     // new BundleAnalyzerPlugin()
   ],
-  devServer: {
-    // ให้เว็บเรียก url ตรงๆ ได้
-    // host: '0.0.0.0',
-    // port: 8080,
-    // noInfo: true,
-    // historyApiFallback: true,
-    // hot: true
-    historyApiFallback: true,
-    noInfo: true,
-    contentBase: './dist',
-    host: '127.0.0.1',
-    hot: true,
-    open: true,
-    inline: true
-  },
-  devtool: false,
+//   devServer: {
+//     // ให้เว็บเรียก url ตรงๆ ได้
+//     // host: '0.0.0.0',
+//     // port: 8080,
+//     // noInfo: true,
+//     // historyApiFallback: true,
+//     // hot: true
+//     historyApiFallback: true,
+//     noInfo: true,
+//     contentBase: './dist',
+//     host: '127.0.0.1',
+//     hot: true,
+//     open: true,
+//     inline: true
+//   },
+//   devtool: false,
   optimization: {
     minimizer: [new UglifyJsPlugin({
       parallel: true,  // บิวทีละหลายอัน

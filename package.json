@@ -26,8 +26,8 @@
     "lint:fix": "yarn run lint --fix",
     "check-staged": "lint-staged",
     "prettier": "./node_modules/.bin/prettier --write src/*.js",
-    "dev": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --mode development --open --config webpack/webpack.dev.js",
+    "build": "webpack --mode production --config webpack/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -71,7 +71,8 @@
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
