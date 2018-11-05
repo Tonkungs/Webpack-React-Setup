@@ -43,6 +43,16 @@ const About = Loadable({
     import(/* webpackChunkName: "About.page" */ "./../page/About/About"),
   loading: () => null
 });
+const Dashboard = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: "About.page" */ "./../page/Dasnboard/Dashboard"),
+  loading: () => null
+});
+const Login = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: "About.page" */ "./../page/Login/Login"),
+  loading: () => null
+});
 // class Routes extends React.Component {
 //   // previousLocation = this.props.location;
 //   render() {
@@ -74,7 +84,10 @@ const Routes = () =>
       <Route exact path="/about" component={About} />
       <Route exact path="/projects" component={Project} />
       <Route exact path="/posts" component={Post} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/login" component={Login} />
       <Route path="/child/:id" component={Child} />
+      
       {/* <Route path="/topic/:id" component={Topics} /> */}
       <Route component={NotFoundPage} />
   </Switch>

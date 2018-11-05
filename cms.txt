@@ -22,3 +22,6 @@ https:// https://medium.freecodecamp.org/how-to-use-reactjs-with-webpack-4-babel
 https://codesandbox.io/s/jzyl70wpk
 
 yup ไว้ตรวจสอบค่า
+
+สอน javascript ครบ
+https://medium.freecodecamp.org/the-complete-javascript-handbook-f26b2c71719c

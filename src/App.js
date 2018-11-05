@@ -6,12 +6,12 @@ import { hot } from 'react-hot-loader'
 // import Header from './components/Header'
 import Routes from './components/Routes'
 // import styles from './App.css'
-import Heading from './components/headering/index' 
+// import Heading from './components/headering/index' 
 
 const App = () => (
   <div>
     {/* <Header /> */}
-    <Heading>Using the heading component!</Heading>
+    {/* <Heading>Using the heading component!</Heading> */}
     {/* <div className="App container"> */}
       <Routes />
     {/* </div> */}
