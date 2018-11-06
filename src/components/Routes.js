@@ -2,6 +2,9 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 // import { Route, Switch ,Link} from "react-router-dom";
 import Loadable from "react-loadable";
+import { Container} from 'semantic-ui-react';
+import HeaderCom from './HeaderCom';
+import FooterCom from './FooterCom';
 // import PropTypes from 'prop-types'; 
 const Post = () => <h1>Post</h1>;
 const Project = () => <h1>Project</h1>;
@@ -79,18 +82,24 @@ const Login = Loadable({
 // export default Routes
 
 const Routes = () => 
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/projects" component={Project} />
-      <Route exact path="/posts" component={Post} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/login" component={Login} />
-      <Route path="/child/:id" component={Child} />
-      
-      {/* <Route path="/topic/:id" component={Topics} /> */}
-      <Route component={NotFoundPage} />
-  </Switch>
-  
+  <div><br /><br /><br /><br /><br />
+  <HeaderCom />
+    <Container>    
+      <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/projects" component={Project} />
+          <Route exact path="/posts" component={Post} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/child/:id" component={Child} />
+          
+          {/* <Route path="/topic/:id" component={Topics} /> */}
+          <Route component={NotFoundPage} />
+      </Switch>
+    </Container> 
+  <FooterCom />
+  </div>
+ 
 
 export default Routes
