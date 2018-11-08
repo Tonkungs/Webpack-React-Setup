@@ -1,8 +1,16 @@
 import React from "react";
 // import { Formik } from 'formik';
 // import ButtonExampleButton from './exsimi';
+import {
+  DateInput,
+  TimeInput,
+  DateTimeInput,
+  DatesRangeInput
+} from 'semantic-ui-calendar-react';
+import moment from 'moment';
 import MyEnhancedForm from './formen';
 
+moment.locale('th');
 
 // import 'antd/dist/antd.css'; 
 class Home extends React.Component {
@@ -10,10 +18,19 @@ class Home extends React.Component {
     super(props);
 
     this.state = {
-      // value: 0
+      date: '',
+      time: '',
+      dateTime: '',
+      datesRange: ''
     };
 
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleChange = (event, {name, value}) => {
+    if (name) {
+      this.setState({ [name]: value });
+    }
   }
 
   handleClick(e) {
@@ -33,7 +50,7 @@ class Home extends React.Component {
 
 
   render() {
-    
+    const {date, time, dateTime,  datesRange} = this.state;
     return (
       <span>
         <section className="hero is-medium is-primary is-bold">
@@ -53,7 +70,30 @@ class Home extends React.Component {
           </div>
           <div className="column">
           <MyEnhancedForm />
-         
+        <DateInput
+          name="date"
+          placeholder="Date"
+          value={date}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <TimeInput
+          name="time"
+          placeholder="Time"
+          value={time}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <DateTimeInput
+          name="dateTime"
+          placeholder="Date Time"
+          value={dateTime}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <DatesRangeInput
+          name="datesRange"
+          placeholder="From - To"
+          value={datesRange}
+          iconPosition="left"
+          onChange={this.handleChange} />
           </div>
         </div>
       </span>

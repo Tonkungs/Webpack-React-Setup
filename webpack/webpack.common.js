@@ -40,6 +40,8 @@ module.exports = {
           }
         }
       },
+      // สำหรับไฟล์ .map
+      { test: /\.js\.map$/, use: "source-map-loader", enforce: "pre" },
       // อันนี้คือแบบที่เค้าใช้งานกัน
       // {
       //   test: /\.css$/,
