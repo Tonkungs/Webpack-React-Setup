@@ -5,10 +5,11 @@ import Loadable from "react-loadable";
 import { Container} from 'semantic-ui-react';
 import HeaderCom from './HeaderCom';
 import FooterCom from './FooterCom';
+import MenuNav from './MenuNav';
 // import PropTypes from 'prop-types'; 
 const Post = () => <h1>Post</h1>;
 const Project = () => <h1>Project</h1>;
-const Child = () => <h1>Child </h1>;
+const Child = () =>  <h1>Child </h1>;
 const NotFoundPage = () => <h1>NotFoundPage</h1>;
 // const Topics = ({ match }) => (
 //   <div>
@@ -82,9 +83,21 @@ const Login = Loadable({
 // export default Routes
 
 const Routes = () => 
-  <div><br /><br /><br /><br /><br />
+  <div>
+   <style>{`
+    body {
+        background-color:#f1f1f1;
+    }
+
+    `}</style>
   <HeaderCom />
-    <Container>    
+  {/* style={{ margin: '5em 0em 0em', padding: '5em 0em' }} */}
+  <Container style={{ 
+    backgroundColor: '#FFFFFF',
+    margin: '7em 0em 3em 0em',
+     padding: '5em 3em' 
+}} >   
+<MenuNav />
       <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
@@ -97,7 +110,7 @@ const Routes = () =>
           {/* <Route path="/topic/:id" component={Topics} /> */}
           <Route component={NotFoundPage} />
       </Switch>
-    </Container> 
+  </Container> 
   <FooterCom />
   </div>
  

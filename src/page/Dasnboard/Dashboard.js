@@ -2,6 +2,7 @@ import React, { Component }  from 'react'
 // import 'semantic-ui-css/semantic.min.css';
 // import { Container} from 'semantic-ui-react';
 // import inputCom from '../../components/inputCom';
+import { Grid, Segment } from 'semantic-ui-react';
 
 class Dashboard extends Component {
 
@@ -26,6 +27,22 @@ class Dashboard extends Component {
                 ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
                 Curabitur ullamcorper ultricies nisi.
                 </p>     
+                <Grid columns={2} divided>
+    <Grid.Row stretched>
+      <Grid.Column>
+        <Segment inverted vertical>1</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>1</Segment>
+        <Segment>2</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>1</Segment>
+        <Segment>2</Segment>
+        <Segment>3</Segment>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
             </React.Fragment>
         )
     }

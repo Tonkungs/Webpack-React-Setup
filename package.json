@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
     "antd": "^3.10.0",
     "element-react": "^1.4.21",
     "element-theme-default": "^1.4.13",

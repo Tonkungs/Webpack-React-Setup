@@ -4,7 +4,8 @@ import {  Image, Container, Segment,Grid,
 
 const FooterClass = () =>(
   <React.Fragment>
-     <Segment inverted vertical style={{ margin: '5em 0em 0em', padding: '5em 0em' }} >
+    {/* style={{ margin: '5em 0em 0em', padding: '5em 0em' }} */}
+     <Segment inverted vertical  >
         <Container textAlign='center'>
             <Grid columns={4} divided stackable inverted>
               <Grid.Row>

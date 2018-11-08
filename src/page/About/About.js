@@ -1,10 +1,8 @@
 import React from "react";
-// import { Control, Form, actions } from "react-redux-form";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 // import MenuNav from "../../components/MenuNav";
 import PropTypes from 'prop-types';
-import BreadCrumb from "../../components/BreadCrumb";
 import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
 
 class About extends React.Component {
@@ -49,7 +47,6 @@ class About extends React.Component {
     const {foo} = this.props;
     return (
       <React.Fragment>
-        <BreadCrumb />
         <h2>About</h2>
         <a href className="button" onClick={this.addCount}>
           เพิ่มค่า
