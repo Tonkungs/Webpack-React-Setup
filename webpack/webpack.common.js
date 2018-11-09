@@ -6,10 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const devMode = process.env.NODE_ENV !== 'production';
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // อัดไฟล์เข้าไป
-// const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
+const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
 // const CompressionPlugin = require('compression-webpack-plugin'); // บีบอัดไฟล์
 // const zopfli = require('@gfx/zopfli'); // อัลกอริทึมบีบไฟล์
-
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');// เอาเฉพาะไฟล์ภาษาที่ต้องการจาก  moment
 // สอนตั้งค่า css module
 // https://medium.com/@vuong.qnguyen10/using-css-module-with-external-ui-library-in-create-react-app-bdd1495615c4
 // https://devahoy.com/posts/basic-web-with-react-router-v4/
@@ -31,7 +31,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        exclude:  /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
@@ -40,8 +40,15 @@ module.exports = {
           }
         }
       },
+
+      {
+        test: /\.(js|map)$/,
+        exclude:  /node_modules/,
+        use: ["source-map-loader"],
+        enforce: "pre"
+      },
       // สำหรับไฟล์ .map
-      { test: /\.js\.map$/, use: "source-map-loader", enforce: "pre" },
+      // { test: /\.js\.map$/, use: "source-map-loader", enforce: "pre" },
       // อันนี้คือแบบที่เค้าใช้งานกัน
       // {
       //   test: /\.css$/,
@@ -95,11 +102,6 @@ module.exports = {
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: "url-loader?limit=100000"
-      },
-      {
-        test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre"
       }
       // {
       //   test: /\.png$/,
@@ -128,6 +130,10 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
+    // เลือกภาษา moment
+    new MomentLocalesPlugin({
+      localesToKeep: ['es-us', 'th'],
+    }),
     // บีบไฟล์
     // new CompressionPlugin({
     //   algorithm: 'gzip'
@@ -143,7 +149,7 @@ module.exports = {
     // ให้ดูที่อยู่ของ code ที่แท้จริงได้
     // new webpack.SourceMapDevToolPlugin({}),
     // วิเคราะห์ขนาดไฟล์
-    // new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ],
 //   devServer: {
 //     // ให้เว็บเรียก url ตรงๆ ได้

@@ -1,5 +1,6 @@
 {
   "presets": ["@babel/preset-react"],
+  "compact" : true,
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",

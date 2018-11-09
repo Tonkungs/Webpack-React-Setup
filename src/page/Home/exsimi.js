@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },

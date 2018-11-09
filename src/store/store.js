@@ -4,9 +4,9 @@ import {
   combineReducers
 } from "redux";
 // import { combineForms, createForms, actionTypes } from "react-redux-form";
-import {
-  combineForms
-} from "react-redux-form";
+// import {
+//   combineForms
+// } from "react-redux-form";
 // import {
 //   composeWithDevTools,
 //   devToolsEnhancer
@@ -36,10 +36,10 @@ const middlewares = [thunk, logger];
 // const middlewares = [thunk];
 
 
-const initialUserState = {
-  firstName: "tonsai",
-  lastName: "jomphun"
-};
+// const initialUserState = {
+//   firstName: "tonsai",
+//   lastName: "jomphun"
+// };
 
 // If you want your entire store to have the form state...
 //   const store = createStore(combineForms({
@@ -76,9 +76,9 @@ const store = createStore(combineReducers({
 
     // Make sure to specify the key as the second argument, so that RRF
     // knows where the form and model reducers exist in the store!
-    myForms: combineForms({
-      user: initialUserState,
-    }, 'myForms'),
+    // myForms: combineForms({
+    //   user: initialUserState,
+    // }, 'myForms'),
   }),
   composeWithDevTools(applyMiddleware(...middlewares))
 );

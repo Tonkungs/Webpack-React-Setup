@@ -1,5 +1,4 @@
 import React, { Component }  from 'react'
-// import 'semantic-ui-css/semantic.min.css';
 // import { Container} from 'semantic-ui-react';
 // import inputCom from '../../components/inputCom';
 import { Grid, Segment } from 'semantic-ui-react';
