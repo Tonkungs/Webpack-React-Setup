@@ -26,16 +26,21 @@
         "ignoreRegExpLiterals": true
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
+    "import/no-extraneous-dependencies": "off",
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
     "class-methods-use-this": "off",
-    "jsx-a11y/label-has-for": false,
-    "jsx-a11y/label-has-associated-control": false
+    "jsx-a11y/label-has-for": 1,
+    "jsx-a11y/label-has-associated-control": 1,
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/named":"off",
+    "import/no-duplicates":"off",
+    "import/order":"off",
+    "import/no-self-import":"off",
+    "import/no-cycle":"off",
+    "import/no-named-as-default":"off",
+    "import/no-named-as-default-member":"off",
+    "import/no-useless-path-segments":"off"
   },
   "env": {
     "browser": true

@@ -24,7 +24,7 @@ class Home extends React.Component {
       datesRange: ''
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange = (event, {name, value}) => {
@@ -33,8 +33,8 @@ class Home extends React.Component {
     }
   }
 
-  handleClick(e) {
-    const { value } = e.currentTarget;
+  // handleClick(e) {
+    // const { value } = e.currentTarget;
     // console.log(value);
     //   this.setState({
     //       counter: this.state.counter + 1
@@ -43,10 +43,10 @@ class Home extends React.Component {
     // this.setState(prevState => ({
     //   value
     // }));
-     this.setState(() => ({
-      value
-    }));
-  }
+    //  this.setState(() => ({
+    //   value
+    // }));
+  // }
 
 
   render() {
@@ -57,7 +57,7 @@ class Home extends React.Component {
           <div className="hero-body">
             <div className="container">
               <h1 className="title">
-                หน้าแรกใหญ่ไหม 
+                หน้าแรกใหญ่ไหม
                 <i className="fab fa-font-awesome" />
               </h1>
               <h2 className="subtitle">Primary bold subtitle</h2>

@@ -62,7 +62,7 @@
 const { resolve } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
@@ -173,7 +173,7 @@ module.exports = {
     // new webpack.DefinePlugin({
     //   "process.env.NODE_ENV": JSON.stringify("production")
     // }),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: "src/index.html"

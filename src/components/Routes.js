@@ -38,23 +38,23 @@ const NotFoundPage = () => <h1>NotFoundPage</h1>;
 // };
 const Home = Loadable({
   loader: () =>
-    import(/* webpackChunkName: "Home.page" */ "./../page/Home/home"),
+    import(/* webpackChunkName: "Home.page" */ "../page/Home/home"),
   loading: () => null
 });
 
 const About = Loadable({
   loader: () =>
-    import(/* webpackChunkName: "About.page" */ "./../page/About/About"),
+    import(/* webpackChunkName: "About.page" */ "../page/About/About"),
   loading: () => null
 });
 const Dashboard = Loadable({
   loader: () =>
-    import(/* webpackChunkName: "About.page" */ "./../page/Dasnboard/Dashboard"),
+    import(/* webpackChunkName: "About.page" */ "../page/Dasnboard/Dashboard"),
   loading: () => null
 });
 const Login = Loadable({
   loader: () =>
-    import(/* webpackChunkName: "About.page" */ "./../page/Login/Login"),
+    import(/* webpackChunkName: "About.page" */ "../page/Login/Login"),
   loading: () => null
 });
 // class Routes extends React.Component {

@@ -1,5 +1,3 @@
-// /** @format */
-
 import React from 'react'
 // import logo from '../assets/images/machine-learning-cheet-sheet.png'
 import { hot } from 'react-hot-loader'
