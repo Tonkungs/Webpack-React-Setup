@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 // import MenuNav from "../../components/MenuNav";
 import PropTypes from 'prop-types';
-import { getFetchPost, postAddCount, postSubCount } from "../../actions/index";
+import { getFetchPost, postAddCount, postSubCount } from "../../actions";
 
 class About extends React.Component {
   constructor(props) {

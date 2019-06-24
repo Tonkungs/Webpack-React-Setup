@@ -16,7 +16,7 @@ import {
 } from "redux-devtools-extension";
 // เอาไว้ดีเลย์
 import thunk from "redux-thunk";
-import fooReducer from "../reducers/index"
+import fooReducer from "../reducers"
 // const store = createStore(reducer, composeWithDevTools(
 //   applyMiddleware(...middleware),
 //   // other store enhancers if any

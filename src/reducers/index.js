@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { REQUEST_IN, ADD_COUNT, SUBTRACT_COUNT } from "../actions/index";
+import { REQUEST_IN, ADD_COUNT, SUBTRACT_COUNT } from "../actions";
 
 const countState = {
   count: 0,
