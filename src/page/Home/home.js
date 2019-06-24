@@ -12,7 +12,6 @@ import MyEnhancedForm from './formen';
 
 moment.locale('th');
 
-// import 'antd/dist/antd.css'; 
 class Home extends React.Component {
   constructor(props) {
     super(props);
