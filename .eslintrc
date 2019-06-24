@@ -30,7 +30,7 @@
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
     "class-methods-use-this": "off",
     "jsx-a11y/label-has-for": 2,
-    "jsx-a11y/label-has-associated-control": 1,
+    "jsx-a11y/label-has-associated-control": 2,
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/named":"off",
