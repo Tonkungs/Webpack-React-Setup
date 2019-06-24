@@ -57,7 +57,7 @@ class Home extends React.Component {
           <div className="hero-body">
             <div className="container">
               <h1 className="title">
-                หน้าแรกใหญ่ไหม
+                หน้าแรกใหญ่ไหม ลอง
                 <i className="fab fa-font-awesome" />
               </h1>
               <h2 className="subtitle">Primary bold subtitle</h2>

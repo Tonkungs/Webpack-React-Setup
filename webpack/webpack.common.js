@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const devMode = process.env.NODE_ENV !== 'production';
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // อัดไฟล์เข้าไป
-const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
+// const { BundleAnalyzerPlugin }= require("webpack-bundle-analyzer"); // ตรวจดูขนาดไฟล์
 // const CompressionPlugin = require('compression-webpack-plugin'); // บีบอัดไฟล์
 // const zopfli = require('@gfx/zopfli'); // อัลกอริทึมบีบไฟล์
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');// เอาเฉพาะไฟล์ภาษาที่ต้องการจาก  moment
@@ -147,9 +147,9 @@ module.exports = {
     //   }
     // }),
     // ให้ดูที่อยู่ของ code ที่แท้จริงได้
-    // new webpack.SourceMapDevToolPlugin({}),
+    new webpack.SourceMapDevToolPlugin({}),
     // วิเคราะห์ขนาดไฟล์
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
 //   devServer: {
 //     // ให้เว็บเรียก url ตรงๆ ได้
