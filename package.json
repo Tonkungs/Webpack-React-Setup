@@ -79,7 +79,7 @@
     "@babel/polyfill": "^7.4.4",
     "formik": "^1.5.7",
     "install": "^0.12.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "onchange": "^6.0.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
